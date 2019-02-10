@@ -1,25 +1,39 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
+let turn = 'A'
+
 class App extends Component {
+  handleClick = (event) => {
+    if(turn === 'A') {
+      document.getElementById(event.target.id).innerHTML = 'O'
+      turn = 'B'
+    } else if(turn === 'B') {
+      document.getElementById(event.target.id).innerHTML = 'X'
+      turn = 'A'
+    }
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className='container mx-auto text-center'>
+        <h1 className='text-blue mb-5'>Tic Tac Toe</h1>
+        <div className='text-center'>
+          <button onClick={this.handleClick} className='border border-black border-8 w-24 h-24' id='1'>
+          </button>
+          <button onClick={this.handleClick} className='border border-black border-8 w-24 h-24' id='2'></button>
+          <button onClick={this.handleClick} className='border border-black border-8 w-24 h-24' id='3'></button>
+        </div>
+        <div className='text-center'>
+          <button onClick={this.handleClick} className='border border-black border-8 w-24 h-24' id='4'></button>
+          <button onClick={this.handleClick} className='border border-black border-8 w-24 h-24' id='5'></button>
+          <button onClick={this.handleClick} className='border border-black border-8 w-24 h-24' id='6'></button>
+        </div>
+        <div className='text-center'>
+          <button onClick={this.handleClick} className='border border-black border-8 w-24 h-24' id='7'></button>
+          <button onClick={this.handleClick} className='border border-black border-8 w-24 h-24' id='8'></button>
+          <button onClick={this.handleClick} className='border border-black border-8 w-24 h-24' id='9'></button>
+        </div>
       </div>
     );
   }
